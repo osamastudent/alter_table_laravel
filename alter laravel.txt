@@ -1,0 +1,52 @@
+
+php artisan make:migration  add_phone_field_to users
+
+php artisan make:migration  add_country_id_to_users_table --table="users"
+
+
+public function up(){
+
+$table->string('phone')->nullable()->after('name');
+$table->unsignedBigInteger('user_id');
+}
+
+ایک ساتھ شامل نہ ہو گا الگ الگ ہونگے۔
+
+public function down(){
+
+$table->dropColumn('phone');
+$table->dropColumn('user_id');
+}
+**********************drop columns from table****************************
+
+php artisan make:migration drop_email_from_members_table
+
+public function up(){
+$table->dropColumn('email');
+}
+
+
+
+***********add multiple columns********
+php artisan make:migration drop_multiple_column_from_members_table
+
+public function up(){
+$table->dropColumn(['email','phone','address']);
+
+}
+
+
+
+
+***********add multiple column***********************
+php artisan make:migrtion add_multiple_column_to_members_table
+public function up(){
+$table->string('image')->after('city');
+$table->string('description')->after('description');
+}
+
+
+public function up(){
+$table->dropColumn(['image','description']);
+}
+
